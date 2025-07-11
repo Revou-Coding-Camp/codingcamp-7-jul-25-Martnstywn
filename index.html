@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo RevoU</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h2>Todo RevoU</h2>
+        <p>Organize your tasks</p>
+      </header>
+
+      <div id="todoForm" class="todo-form">
+        <div class="form-input">
+          <input type="text" id="todoTitle" placeholder="Enter your task..." />
+
+          <input type="date" id="todoDate" />
+
+          <button type="submit" class="btn-primary">Add</button>
+        </div>
+      </div>
+
+      <div class="filter-controls">
+        <select id="filterStatus">
+          <option value="all">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+
+        <button id="clearCompleted" class="btn-danger">Delete Complete</button>
+      </div>
+
+      <ul id="todoList" class="todo-list">
+        <!-- TodoList -->
+      </ul>
+    </div>
+  </body>
+</html>
