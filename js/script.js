@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Dom Element
   const todoForm = document.getElementById("todoForm");
   const todoTitle = document.getElementById("todoTitle");
   const todoDate = document.getElementById("todoDate");
@@ -9,15 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleError = document.getElementById("titleError");
   const dateError = document.getElementById("dateError");
 
-  // Initialize todos array
   let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-  // Function to save todos to localStorage
   const saveTodos = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   };
 
-  // Function to validate form
+  // validate form
   const validateForm = () => {
     let isValid = true;
 
@@ -38,13 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid;
   };
 
-  // Function to format date
+  // format date
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
-  // Function to render todos
+  // render todos
   const renderTodos = () => {
     const statusFilter = filterStatus.value;
 
@@ -88,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .join("");
 
-    // Add event listeners to the new buttons
     document.querySelectorAll(".toggle-complete").forEach((button) => {
       button.addEventListener("click", toggleComplete);
     });
@@ -98,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Function to add a new todo
+  // add a new todo
   const addTodo = (e) => {
     e.preventDefault();
 
@@ -122,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     todoTitle.focus();
   };
 
-  // Function to toggle todo completion status
+  // completion status
   const toggleComplete = (e) => {
     const todoId = parseInt(e.target.closest(".todo-item").dataset.id);
 
@@ -137,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTodos();
   };
 
-  // Function to delete a todo
+  // delete
   const deleteTodo = (e) => {
     const todoId = parseInt(e.target.closest(".todo-item").dataset.id);
 
@@ -148,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Function to clear completed todos
+  // clear completed
   const clearCompletedTodos = () => {
     if (confirm("Are you sure you want to clear all completed tasks?")) {
       todos = todos.filter((todo) => !todo.completed);
@@ -157,11 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Event listeners
   todoForm.addEventListener("submit", addTodo);
   filterStatus.addEventListener("change", renderTodos);
   clearCompleted.addEventListener("click", clearCompletedTodos);
 
-  // Initial render
   renderTodos();
 });
