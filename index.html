@@ -15,15 +15,27 @@
         <p>Organize your tasks</p>
       </header>
 
-      <div id="todoForm" class="todo-form">
+      <form id="todoForm" class="todo-form">
         <div class="form-input">
-          <input type="text" id="todoTitle" placeholder="Enter your task..." />
+          <div class="form-group">
+            <label for="todoTitle">Task</label>
+            <input
+              type="text"
+              id="todoTitle"
+              placeholder="Enter your task..."
+            />
+            <div id="titleError" class="error-message">Please enter a task</div>
+          </div>
 
-          <input type="date" id="todoDate" />
-
-          <button type="submit" class="btn-primary">Add</button>
+          <div class="form-group">
+            <label for="todoDate">Due Date</label>
+            <input type="date" id="todoDate" />
+            <div id="dateError" class="error-message">Please select a date</div>
+          </div>
         </div>
-      </div>
+
+        <button type="submit" class="btn-primary">Add</button>
+      </form>
 
       <div class="todo-group">
         <div class="filter-controls">
@@ -43,5 +55,7 @@
         </ul>
       </div>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
